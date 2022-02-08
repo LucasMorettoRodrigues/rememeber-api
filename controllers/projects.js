@@ -1,3 +1,5 @@
+const Project = require('../models/Project')
+
 const getAllProjects = async (req, res) => {
     res.send('get all projects')
 }
