@@ -9,7 +9,10 @@ const {
         deleteProject,
     } = require('../controllers/projects')
 
-router.route('/').get(getAllProjects).post(createProject)
+router.route('/')
+    .get(getAllProjects)
+    .post(createProject)
+
 router.route('/:id')
     .get(getProject)
     .patch(updateProject)

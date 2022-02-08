@@ -1,14 +1,28 @@
 const express = require('express')
 const app = express()
+const connectDB = require('./db/connect')
+require('dotenv').config()
+require('express-async-errors');
 
 const authRouter = require('./routes/auth')
 const projectsRouter = require('./routes/projects')
+const notFound = require('./middleware/not-found')
 
 app.use(express.json())
 
-app.use('api/v1/auth', authRouter)
-app.use('api/v1/projects', projectsRouter)
+app.use('/api/v1/auth', authRouter)
+app.use('/api/v1/projects', projectsRouter)
+app.use(notFound)
 
 const port = 5000
 
-app.listen(port, console.log(`Server is listening on port ${port}`))
+const start = async () => {
+    try {
+        await connectDB(process.env.MONGO_URI)
+        app.listen(port, console.log(`Server is listening on port ${port}`))
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+start()
