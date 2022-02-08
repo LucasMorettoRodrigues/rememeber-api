@@ -7,11 +7,12 @@ require('express-async-errors');
 const authRouter = require('./routes/auth')
 const projectsRouter = require('./routes/projects')
 const notFound = require('./middleware/not-found')
+const auth = require('./middleware/authentication')
 
 app.use(express.json())
 
 app.use('/api/v1/auth', authRouter)
-app.use('/api/v1/projects', projectsRouter)
+app.use('/api/v1/projects', auth, projectsRouter)
 app.use(notFound)
 
 const port = 5000
