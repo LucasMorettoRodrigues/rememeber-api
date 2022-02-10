@@ -10,6 +10,8 @@ const {
 router.route('/:id/tasks')
     .post(createTask)
     .get(getProjectTasks)
+
+router.route('/:id/tasks/:taskId')
     .delete(deleteTask)
     .patch(updateTask)
 

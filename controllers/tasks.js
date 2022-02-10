@@ -24,7 +24,7 @@ const updateTask = async (req, res) => {
 }
 
 const deleteTask = async (req, res) => {
-    const task = await Task.findByIdAndDelete( req.body.taskId )
+    const task = await Task.findByIdAndDelete( { _id: req.params.taskId} )
 
     if(!task) {
         throw new Error('Task does not exist')
