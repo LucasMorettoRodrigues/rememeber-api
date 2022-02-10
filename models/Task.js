@@ -16,7 +16,7 @@ const TaskSchema = new mongoose.Schema({
     project: {
         type: mongoose.Types.ObjectId,
         ref: 'Project',
-        require: [true, 'Please provide project']
+        required: [true, 'Please provide project']
     }
 })
 
