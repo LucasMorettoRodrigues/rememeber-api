@@ -11,6 +11,11 @@ const getProjectTasks = async (req, res) => {
     res.status(201).json({ tasks })
 }
 
+const getAllTasks = async (req, res) => {
+    const tasks = await Task.find()
+    res.status(201).json({ tasks })
+}
+
 const updateTask = async (req, res) => {
     const task = await Task.findByIdAndUpdate({ _id: req.body.taskId },
         { completed: req.body.completed },
@@ -37,5 +42,6 @@ module.exports = {
     createTask,
     getProjectTasks,
     deleteTask,
-    updateTask
+    updateTask,
+    getAllTasks
 }
