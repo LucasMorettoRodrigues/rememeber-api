@@ -15,7 +15,7 @@ router.route('/:id/tasks')
     .post(createTask)
     .get(getProjectTasks)
 
-router.route('/:id/tasks/:taskId')
+router.route('/tasks/:taskId')
     .delete(deleteTask)
     .patch(updateTask)
 

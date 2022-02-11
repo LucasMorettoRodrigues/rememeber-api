@@ -17,7 +17,7 @@ const getAllTasks = async (req, res) => {
 }
 
 const updateTask = async (req, res) => {
-    const task = await Task.findByIdAndUpdate({ _id: req.body.taskId },
+    const task = await Task.findByIdAndUpdate({ _id: req.params.taskId },
         { completed: req.body.completed },
         { new: true, runValidators: true } )
 
