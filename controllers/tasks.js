@@ -7,12 +7,23 @@ const createTask = async (req, res) => {
 }
 
 const getProjectTasks = async (req, res) => {
+
+    const { project } = req.query
+
     const tasks = await Task.find({ project: req.params.id })
     res.status(201).json({ tasks })
 }
 
 const getAllTasks = async (req, res) => {
-    const tasks = await Task.find()
+    const { project } = req.query
+    const objectQuery = {}
+
+    if(project) {
+        objectQuery.project = project
+    }
+
+    const tasks = await Task.find(objectQuery)
+
     res.status(201).json({ tasks })
 }
 
