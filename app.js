@@ -19,7 +19,7 @@ app.use('/api/v1/projects', auth, projectsRouter)
 app.use('/api/v1/project/', auth, tasksRouter)
 app.use(notFound)
 
-const port = 5000
+const port = process.env.PORT || 5000
 
 const start = async () => {
     try {
