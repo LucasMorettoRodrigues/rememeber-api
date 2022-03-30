@@ -4,8 +4,8 @@ Remember is a project to implement a Todo's list using MERN stack.
 ## Live Demo
 [Click here](https://lucasmorettorodrigues.github.io/remember/) to access a live demo.
 
-## Back-end Repo
-[Click here](https://github.com/LucasMorettoRodrigues/remember-api) to access the back-end repository.
+## Front-end Repo
+[Click here](https://github.com/LucasMorettoRodrigues/remember-api) to access the front-end repository.
 
 ## Features
 - Sign In
